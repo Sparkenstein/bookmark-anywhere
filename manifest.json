@@ -9,8 +9,8 @@
     },
     "content_scripts": [
       {
-         "matches": ["http://*/*"],
-         "js": ["contentScript.js"]
+         "matches": ["<all_urls>"],
+         "js": ["jquery.js", "contentScript.js"]
       }
    ],    
     "icons": {

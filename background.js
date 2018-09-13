@@ -13,5 +13,11 @@ chrome.runtime.onInstalled.addListener(function(){
 });
 
 chrome.contextMenus.onClicked.addListener(function(itemData){
-    console.log("Item Data", itemData);
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {itemData}, function(response) {
+            console.log("res", response);
+        });
+    }); 
 });
+
+
