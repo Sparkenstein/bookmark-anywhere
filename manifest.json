@@ -2,7 +2,7 @@
     "name": "bookmark anywhere",
     "version": "1.0",
     "description": "Bookmark the page from any point!",
-    "permissions": ["contextMenus"],
+    "permissions": ["storage", "contextMenus"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
@@ -10,9 +10,19 @@
     "content_scripts": [
       {
          "matches": ["<all_urls>"],
-         "js": ["jquery.js", "contentScript.js"]
+         "js": ["contentScript.js"]
       }
-   ],    
+   ],
+   "page_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+      },
+      "default_title" : "Bookmark!"
+    },
     "icons": {
 		"16" : "images/get_started16.png",
 		"32" : "images/get_started32.png",
